@@ -11,7 +11,9 @@ Data available from ONS may be shared.
 
 # What Data to Use
 NSS_taught_all18 gives us data aggregated by teaching provider (not registered body). 
-We use sheet NSS1 which also gives us provider and JACS1 level subject breakdown. [Burgess et al, 2018](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0192976) found that a Subject x University interaction made the largest contribution to variation in satisfaction scores over ten years. 
+We use sheet NSS1 which also gives us provider and te HECoS systems level subject breakdown. [Burgess et al, 2018](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0192976) found that a Subject x University interaction made the largest contribution to variation in satisfaction scores over ten years. 
+
+NB - HECoS [(Higher Education Calssification of Subjects)](https://www.hesa.ac.uk/innovation/hecos) replaced JACS in 2018. Yet another difference between 2018 and previous years data!
 
 
 ## 2018 Methodology

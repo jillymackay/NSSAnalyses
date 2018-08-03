@@ -9,26 +9,38 @@ library (reshape2)
 
 # Data Processing
 NSS18 <- read_excel("Data/NSS_taught_all18.xlsx", 
-                    sheet = "NSS", skip = 3) %>%
+                    sheet = "NSS", skip = 3, col_types = "text") %>%
   rename (StronglyDisagree = "Answered 1",
           Disagree = "Answered 2",
           Neither = "Answered 3",
           Agree = "Answered 4",
           StronglyAgree = "Answered 5",
           Question = "Question Number") %>%
-  mutate (Agreement = Agree + StronglyAgree,
+  mutate (StronglyDisagree = parse_double(StronglyDisagree),
+          Disagree = parse_double(Disagree),
+          Neither = parse_double(Neither),
+          Agree = parse_double (Agree),
+          StronglyAgree = parse_double (StronglyAgree),
+          Agreement = Agree + StronglyAgree,
           Question = as_factor(Question))
+# Use parse_double because parse_number gets confused with some values and reads them in as >1 (who know why?!)
+
 
 
 NSS18Subjects <- read_excel("Data/NSS_taught_all18.xlsx", 
-                    sheet = "NSS1", skip = 3) %>%
+                    sheet = "NSS1", skip = 3, col_types = "text") %>%
   rename (StronglyDisagree = "Answered 1",
           Disagree = "Answered 2",
           Neither = "Answered 3",
           Agree = "Answered 4",
           StronglyAgree = "Answered 5",
           Question = "Question Number") %>%
-  mutate (Agreement = Agree + StronglyAgree,
+  mutate (StronglyDisagree = parse_double(StronglyDisagree),
+          Disagree = parse_double(Disagree),
+          Neither = parse_double(Neither),
+          Agree = parse_double (Agree),
+          StronglyAgree = parse_double (StronglyAgree),
+          Agreement = Agree + StronglyAgree,
           Question = as_factor(Question))
 
 
