@@ -124,3 +124,23 @@ EDI %>%
         y = "Total Agree",
         title = "Overall Satisfaction for the Edinburgh in 2018") +
   coord_flip()
+
+
+
+
+NSS18Subjects %>%
+  filter (Subject %in% "Veterinary sciences",
+         Provider %in% c("University of Edinburgh", "University of Glasgow",
+                         "The Royal Veterinary College", "University of Bristol",
+                          "University of Nottingham, The"),
+         Level %in% "First degree") %>%
+  ggplot (aes (x = Question, y = Agreement, color = Provider) ) + 
+  geom_point(size = 4) +
+  theme_classic() +
+  labs (x = "Provider (From OfS Data)",
+        y = "Total Agree",
+        title = "Overall Satisfaction for Vets in 2018") +
+  coord_flip()
+
+
+

@@ -41,7 +41,27 @@ NSS18Subjects <- read_excel("Data/NSS_taught_all18.xlsx",
           Agree = parse_double (Agree),
           StronglyAgree = parse_double (StronglyAgree),
           Agreement = Agree + StronglyAgree,
-          Question = as_factor(Question))
+          Question = as_factor(Question))  %>%
+  gather (key = "Likert", value = "PercRespondents",
+          -"UKPRN",                     
+          -"Provider",                  
+          -"Subject Code",              
+          -"Subject",                  
+          -"Level",                     
+          -"Question",
+          -"Confidence interval - min", 
+          -"Actual value",
+          -"Confidence interval - max", 
+          -"Response",                 
+          -"Sample Size",              
+          -"Two years aggregate data?")
+
+
+
+
+
+
+
 
 
 
@@ -227,7 +247,7 @@ sq4 <- sq1 +
   xlab("Staff Have Made The Subject Interesting") +
   ylab("% Overall Satisfaction")
 
-steaching <- grid.arrange(sq1, sq2, sq3, sq4, top = "NSS 2018 - Relationship between question and overall satisfaction across JACS1 Subject x Provider")
+steaching <- grid.arrange(sq1, sq2, sq3, sq4, top = "NSS 2018 - Relationship between question and overall satisfaction across HECoS Subject x Provider")
 steaching
 
 
